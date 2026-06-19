@@ -12,8 +12,8 @@ CREATE TABLE users (
 -- Skill nodes table (the tree structure)
 CREATE TABLE skill_nodes (
   id SERIAL PRIMARY KEY,
-  nameC VARCHAR(100) NOT NULL,
-  descriptionC TEXT,
+  name VARCHAR(100) NOT NULL,
+  description TEXT,
   parent_id INTEGER REFERENCES skill_nodes(id),
   position_x INTEGER,
   position_y INTEGER,
@@ -25,7 +25,7 @@ CREATE TABLE challenges (
   id SERIAL PRIMARY KEY,
   skill_node_id INTEGER REFERENCES skill_nodes(id) NOT NULL,
   title VARCHAR(255) NOT NULL,
-  descriptionCh TEXT,
+  description TEXT,
   starter_code TEXT,
   test_cases JSONB,
   xp_reward INTEGER DEFAULT 10,
